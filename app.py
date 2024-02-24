@@ -12,7 +12,6 @@ upload pdf
 
 ''' 
 
-from torch import cuda 
 from BERTClassifier import BERTClass , predict_text_class 
 from JobDescriptionMatcher import PDFJobMatcher, cleanText
 import streamlit as st 
@@ -74,7 +73,7 @@ def category_filtration(pdf_list,category_class):
 
 
 def load_model(model_class, filepath):
-    device='cuda' if cuda.is_available() else 'cpu' 
+    device='cpu' 
     model = model_class()
     model.load_state_dict(torch.load(filepath))
     model.to(device)
