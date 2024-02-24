@@ -1,6 +1,5 @@
 import transformers
-import torch
-from torch import cuda  
+import torch 
 
 class BERTClass(torch.nn.Module):
     def __init__(self):
@@ -17,7 +16,7 @@ class BERTClass(torch.nn.Module):
     
 
 def predict_text_class(input_text, model):
-    device='cuda' if cuda.is_available() else 'cpu' 
+    device='cpu' 
     tokenizer = transformers.BertTokenizer.from_pretrained('bert-base-uncased')
     inputs = tokenizer.encode_plus(input_text, add_special_tokens=True, return_tensors="pt", max_length=512, truncation=True)
     ids = inputs['input_ids'].to(device)
