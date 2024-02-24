@@ -32,4 +32,4 @@ wikipedia==1.4.0
 word2number==1.1
 wordcloud==1.9.3
 xgboost==2.0.3
-torch
+
